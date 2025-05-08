@@ -1,0 +1,6 @@
+[crate]
+	lib = "vec"
+[deps]
+	rc = { git = "https://github.com/myfamilyorg/rc" }
+	try_clone = { git = "https://github.com/myfamilyorg/try_clone" }
+	slice_ext = { git = "https://github.com/myfamilyorg/slice_ext" }
