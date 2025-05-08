@@ -425,7 +425,7 @@ impl<T> Vec<T> {
                 ffi::write(2, "pre\n".as_ptr(), 4);
             }
         }
-        self.as_mut().slice_copy(&other)?;
+        self.as_mut()[len..len + other_len].slice_copy(&other)?;
         //slice_copy(other, self.slice_mut_from(len), other.len())
         unsafe {
             ffi::write(2, "post\n".as_ptr(), 5);
