@@ -420,8 +420,10 @@ impl<T> Vec<T> {
         let other_len = other.len();
         self.resize_impl(other_len + len)?;
         self.elements = other_len + len;
-        unsafe {
-            ffi::write(2, "pre\n".as_ptr(), 4);
+        for i in 0..other.len() {
+            unsafe {
+                ffi::write(2, "pre\n".as_ptr(), 4);
+            }
         }
         self.as_mut().slice_copy(&other)?;
         //slice_copy(other, self.slice_mut_from(len), other.len())
